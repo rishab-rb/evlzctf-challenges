@@ -1,0 +1,36 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+  {% if user.is_authenticated %}
+  <center><h1>Welcome, {{ user.username }}</h1></center>
+  <div class = 'row'>
+    <div class = 'col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+      <form action='/upload' method='POST' enctype="multipart/form-data">
+        <div class='form-group'>
+          <input class='form-control' type='file' name='uploaded_file'>
+        </div>
+        <div class='form-group'>
+            <button type = "submit" class = 'btn bg-primary text-center'>Upload File</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class = 'row'>
+    <h4>Question Remover</h4>
+    <div class = 'col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+      <form action='/deleteQuestion' method='POST' enctype="">
+        <div class='form-group'>
+          <label for='qid'>Question ID</label>
+          <input class='form-control' type='number' name='qid'>
+        </div>
+        <div class='form-group'>
+            <button type = "submit" class = 'btn bg-primary text-center'>Delete Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <center><h1><a href="{{ url_for("login")}}">Login</a> with Admin Account</h1></center>
+  {% endif %}
+{% endblock %}

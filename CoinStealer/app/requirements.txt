@@ -1,0 +1,6 @@
+Flask
+Flask-Login
+sqlalchemy
+Flask-WTF
+gunicorn
+Flask-Migrate

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ShowCoin
+{% endblock %}
+
+{% block body %}
+
+<div class = 'row'>
+    <div class = 'mx-auto text-responsive'>
+        <center><img src='/static/img/logo.png' class='w-100 img-responsive' style='max-width:256px;padding-top:2vh'></center>
+        <h1 style='color:#DDD;font-size:12vw'>ShowCoin</h1>
+        {% if current_user.is_authenticated %}
+            <center><a href = '/buyflag'><button type="button" class="btn btn-primary btn-lg">Buy Flag: {{flag_cost}}</button></a></center>
+            <center><h2 class= 'text-white' style='padding-top:5vh'>Your Value: {{current_user.wallet.value}}</h2></center>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

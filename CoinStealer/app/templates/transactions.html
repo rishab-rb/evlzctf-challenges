@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ShowCoin | Transactions
+{% endblock %}
+
+{% block body %}
+
+<div class = 'container text-white'>
+    <center><h1>Transactions</h1></center>
+    <div class = 'row'>
+        <div class = 'col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <table class="table table-striped">
+                <thead class='thead-inverse'>
+                    <tr>
+                    <th scope='col'>Transaction</th>
+                    <th scope='col'>Value</th>
+                    </tr>
+                </thead>
+                <tbody class = "scoreboard-rows" style='font-size:1.5em;font-family:Josefin Sans Light'>
+                {% for transaction in transactions %}
+                    <tr class='scoreboard-row'>
+                    <td><a class="table-link" href='/transaction/{{ transaction.transaction_uuid }}' >{{ transaction.transaction_uuid }}</a></td>
+                    <td>{{ transaction.value }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

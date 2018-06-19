@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ShowCoin | {{ transaction.transaction_uuid }}
+{% endblock %}
+
+{% block body %}
+
+<div class = 'container text-white'>
+    <center><h1>Transaction</h1></center>
+    <div class = 'row'>
+        <div class = 'col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+            <center><h2>Value: {{ transaction.value }}</h2></center>
+        </div>
+        <div class = 'col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+            <center><h2>Transaction Signatures</h2></center>
+
+            <table class="table table-striped">
+                    <thead class='thead-inverse'>
+                        <tr>
+                        <th scope='col'><center>Signature</center></th>
+                        </tr>
+                    </thead>
+                    <tbody class = "scoreboard-rows" style='font-size:1.5em;font-family:Josefin Sans Light'>
+                    {% for signature in transaction.signatures %}
+                        <tr class='scoreboard-row'>
+                        <td><center>{{ signature.signature }}</center></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
