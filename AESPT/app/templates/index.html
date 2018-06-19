@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Evlz Tech
+{% endblock %}
+
+{% block body %}
+
+<div class = 'row'>
+    <div class = 'mx-auto text-responsive'>
+        <center>
+        <h1 class='w-100 mx-auto' style='font-size:5vw'>Evlz Tech</h1>
+        <h3 class='w-100 mx-auto'>Encrypt Your Future</h3>
+        {% if user.is_authenticated %}
+            <a href = '/admin'><button type="button" class="btn btn-primary btn-lg">Admin</button></a>
+        {% else %}
+            <a href = '/register'><button type="button" class="btn btn-primary btn-lg d-inline-block">Register</button></a>
+            <a href = '/login'><button type="button" class="btn btn-primary btn-lg d-inline-block">Login</button></a>
+        {% endif %}
+        </center>
+    </div>
+</div>
+
+{% endblock %}

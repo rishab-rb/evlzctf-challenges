@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+MehCTF | Login
+{% endblock %}
+
+{% block body %}
+<div class = "row" style = "margin-top:1em">
+    <div class = "col-xs-12 col-sm-12 col-md-3 offset-md-4 col-lg-3 offset-lg-4 text-responsive">
+        <div class = 'login-container'>   
+            <form action = '/login' method = "POST" class = "login-form">
+                {{ form.hidden_tag()}}  
+                <div class = "form-group">
+                    <input class = "form-control" name = "username" size='50' placeholder = "Username" type = "text" />
+                </div>
+                <div class = "form-group">
+                    <input class = "form-control" name = "password" size='50' placeholder = "Password" type = "password" />
+                </div>
+                <div>
+                    <center><button type = "submit" class = 'btn bg-light text-center'>Login</button></center>
+                </div>
+            </form>
+            {% if message %}
+                <center>{{ message }}</center>
+            {% endif %}
+            
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</div>
+{% endblock %}
