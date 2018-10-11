@@ -11,3 +11,6 @@ Web Challenges from [EvlzCTF](https://ctftime.org/event/570)
     - HashCollision
     - AESPT
     - Malware
+    
+    
+# Flag
